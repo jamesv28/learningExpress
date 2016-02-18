@@ -38,11 +38,20 @@ app.get("/companies/:company/products/:productName", function (req, res) {
     = indicates an assignment; anything to the left is the key, while the right represents the value
     & allows for the input of multiple parameters, separating each
  */
+
+
 // WHEN someone visits /greeting?name=Sue
 // THEN set req.query to an object that looks like {name: "Sue"}
 app.get("/hi", function (req, res) {
     var name = req.query.name;
     res.send("Hello, " + name);
+});
+
+
+// WHEN someone visits /greeting?first=Joe&last=Jones
+// THEN set req.query to an object that looks like {first: "Joe", last: "Jones"}
+app.get("/greeting", function (req, res) {
+    res.send("Hello, " + [req.query.first, req.query.last].join(" "));
 });
 
 app.get('/vegetables', function (req,res) {
