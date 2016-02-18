@@ -33,6 +33,17 @@ app.get("/companies/:company/products/:productName", function (req, res) {
     res.send( req.params.company + " makes the " + req.params.productName );
 });
 
+/**
+ * ? denotes the beginning of the query parameters
+    = indicates an assignment; anything to the left is the key, while the right represents the value
+    & allows for the input of multiple parameters, separating each
+ */
+// WHEN someone visits /greeting?name=Sue
+// THEN set req.query to an object that looks like {name: "Sue"}
+app.get("/hi", function (req, res) {
+    var name = req.query.name;
+    res.send("Hello, " + name);
+});
 
 app.get('/vegetables', function (req,res) {
     //combine all of the vegetables together
