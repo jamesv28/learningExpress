@@ -6,11 +6,13 @@ var vegetables = [
     'Cucumber',
     'Peas'
 ];
-
+app.set('view engine', 'ejs');
 //home directory
 app.get('/', function(req, res){
     //response send to the browser
-    res.send('hello world');
+    // THEN read the file named index.ejs, and do some text replacing
+    // such that <%= name %> becomes "Elie"
+    res.render('index', {name: "Elie"});
 });
 
 app.get('/meaning-of-life', function(req,res) {
