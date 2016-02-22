@@ -34,7 +34,13 @@ app.get("/hello/:name", function (req, res) {
 app.get("/companies/:company/products/:productName", function (req, res) {
     res.send( req.params.company + " makes the " + req.params.productName );
 });
-
+app.get('/powers/:num1/:num2',function(req,res,next){
+   var num1 = req.params.num1;
+    num1 = parseInt(num1);
+    var num2 = req.params.num2;
+    num2 = parseInt(num2);
+    res.send('number' + Math.pow(num1,num2));
+});
 /**
  * ? denotes the beginning of the query parameters
     = indicates an assignment; anything to the left is the key, while the right represents the value
